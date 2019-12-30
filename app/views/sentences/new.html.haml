@@ -1,0 +1,20 @@
+.wrapper
+  = render "header"
+
+  .stc-field
+    = form_with model: @sentences do |f|
+      .dummy
+      .wrapper
+        .stc-field__note
+          好きな文章を入力してください。
+        .stc-field__input
+          = f.text_area :text, class: "stc-field__input--text"
+        .stc-field__input
+          .stc-field__input--btn
+            ローマ字変換
+          %p ボタンを押すと、下記エリアに、ローマ字が入力されます。
+          %p 必要であれば、修正してください。
+          = f.text_area :romaji, class: "stc-field__input--text"
+        .stc-field__submit
+          = f.submit "登録する", class: "submit-btn"
+      .dummy

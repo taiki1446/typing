@@ -1,0 +1,40 @@
+.wrapper
+  .title
+    タイピング　練習
+  .header
+    .header__register
+      = link_to sentences_path do
+        文章登録
+    .header__wrapper
+      .header__wrapper--deco
+        = link_to "#", class: "deco-link" do
+          ランキング
+      .header__wrapper--deco
+        = link_to "#", class: "deco-link" do
+          新規登録
+      .header__wrapper--deco
+        = link_to "#", class: "deco-link" do
+          ログイン
+
+  .games
+    .games__num
+      挑戦する文章の数を入力してください。
+      %br
+      - num = []
+      - @sentences.length.times do |i|
+        - num << i + 1
+      = select_tag "select", options_for_select(num), class: "games__num__select"
+    .games__start
+      %p
+        スタートをクリックするとゲーム・測定開始！
+      .games__start__btn
+        start!
+      .games__start__note
+        ※必ず半角で入力をしてください。
+    .games__sentences
+      %p
+        ここに問題文が出力されます。
+      .games__sentences__text
+        = text_field_tag "text", "", class: "input-field"
+      .no-display
+    .dummy

@@ -1,0 +1,23 @@
+.wrapper
+  = render "header"
+
+  .stc
+    - @sentences.each do |sentence|
+      .stc__wrapper
+        .stc__wrapper--id
+          = sentence.id
+        .stc__wrapper__btn
+          = link_to "#", class: "stc__wrapper__btn--link" do
+            編集
+        .stc__wrapper__btn
+          = link_to sentence_path(sentence.id), method: :delete, class: "stc__wrapper__btn--link" do
+            削除
+      %table
+        %tr
+          %th 日本語
+          %td
+            = sentence.text
+        %tr
+          %th ローマ字
+          %td
+            = sentence.romaji
