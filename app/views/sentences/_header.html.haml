@@ -1,0 +1,13 @@
+.stc-header
+  .dummy
+  %ul
+    %li
+      - if request.fullpath.include?("new")
+        = link_to sentences_path do
+          戻る
+      - else
+        = link_to new_sentence_path do
+          追加登録
+    %li
+      = link_to root_path do
+        トップ画面

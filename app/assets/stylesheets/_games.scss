@@ -1,0 +1,107 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  background-color: #f0f8ff;
+  font-size: 20px;
+
+  .title {
+    text-align: center;
+    font-size: 50px;
+    background-color: #fff;
+    padding: 20px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    &__register {
+      margin-left: 20px;
+    }
+    &__wrapper {
+      display: flex;
+      &--deco {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  .games {
+    margin-top: 50px;
+    &__num {
+      text-align: center;
+      &__select {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+    }
+
+    &__start {
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 10px;
+
+      &__btn {
+        height: 30px;
+        width: 200px;
+        line-height: 30px;
+        margin: 10px auto;
+        background-color: aqua;
+        font-size: 30px;
+        padding: 20px;
+        cursor: pointer;
+        border-radius: 20px;
+      }
+    }
+
+    &__sentences{
+      padding-top: 10px;
+      background-color: #99FFFF;
+      width: 70%;
+      margin: auto;
+      position: relative;
+      border-radius: 10px;
+      margin-bottom: 20px;
+
+      &__sentence {
+        padding: 10px;
+      }
+      .sentence-deco {
+        font-size: 30px;
+      }
+
+      &__text {
+        margin-left: 20px;
+        height: 30px;
+        width: 120px;
+      }
+
+      .no-display{
+        position: absolute;
+        bottom: 1px;
+        left: 0px;
+        height: 30px;
+        width: 200px;
+        background-color: #99FFFF;
+        border-radius: 10px;
+      }
+    }
+
+    .dummy {
+      height: 1px;
+    }
+    .input-str {
+      width: 70%;
+      margin: auto;
+      padding-top: 10px;
+      background-color: #FFCC66;
+      border-radius: 10px;
+
+    }
+  }
+}
+

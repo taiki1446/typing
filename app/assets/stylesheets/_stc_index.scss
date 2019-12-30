@@ -1,0 +1,56 @@
+.stc-header {
+  display: flex;
+  justify-content: space-between;
+  
+  ul {
+    display: flex;
+    padding-top: 30px;
+    list-style: none;
+
+    li {
+      margin-right: 30px;
+    }
+  }
+
+}
+
+.stc {
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+
+    &--id {
+      width: 50px;
+      text-align: center;
+    }
+
+    &__btn {
+      margin-left: 20px;
+    }
+
+    &__deco {
+      width: 100px;
+      text-align: center;
+      line-height: 40px;
+      border-right: solid 1px #d3d3d3;
+
+    }
+  }
+
+  table {
+    height: 80px;
+    width: 100%;
+    tr {
+      th {
+        width: 100px;
+        border: solid 1px black;
+        line-height: 40px;
+      }
+
+      td {
+        border: solid 1px black;
+      }
+    }
+  }
+}
