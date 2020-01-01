@@ -1,3 +1,5 @@
+= javascript_include_tag "games"
+
 .wrapper
   .title
     タイピング　練習
@@ -16,6 +18,37 @@
         = link_to "#", class: "deco-link" do
           ログイン
 
+  %br
+  .result.dsp-none
+    %br
+    .result__clear
+      全問クリア！
+    %br
+    %table
+      %tr
+        %th
+          文章数
+        %td.result__stc-num
+          
+      %tr
+        %th
+          タイム
+        %td.result__time
+          
+      %tr
+        %th
+          文字数 / 秒
+        %td.result__verage
+          
+    %br
+    .result__wrapper
+      .result__wrapper__challenge
+        = link_to "再チャレンジ！", root_path
+      .result__wrapper__top
+        = link_to "結果を登録する", "#"
+    %br
+        
+
   .games
     .games__num
       挑戦する文章の数を入力してください。
@@ -27,10 +60,10 @@
     .games__start
       %p
         スタートをクリックするとゲーム・測定開始！
-      .games__start__btn
-        start!
       .games__start__note
         ※必ず半角で入力をしてください。
+      .games__start__btn
+        start!
     .games__sentences
       %p
         ここに問題文が出力されます。
@@ -38,3 +71,4 @@
         = text_field_tag "text", "", class: "input-field"
       .no-display
     .dummy
+  %br

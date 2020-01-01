@@ -26,7 +26,7 @@
       }
     }
   }
-
+  
   .games {
     margin-top: 50px;
     &__num {
@@ -56,6 +56,17 @@
         cursor: pointer;
         border-radius: 20px;
       }
+    }
+
+    .playing {
+      height: 30px;
+      width: 200px;
+      line-height: 30px;
+      margin: 10px auto;
+      background-color: yellow;
+      font-size: 30px;
+      padding: 20px;
+      border-radius: 20px;
     }
 
     &__sentences{
