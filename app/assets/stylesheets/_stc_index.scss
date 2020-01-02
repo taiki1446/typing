@@ -2,9 +2,15 @@
   display: flex;
   justify-content: space-between;
   
+  .header-title {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-left: 200px;
+  }
+
   ul {
     display: flex;
-    padding-top: 30px;
+    margin-top: 30px;
     list-style: none;
 
     li {
@@ -28,6 +34,9 @@
 
     &__btn {
       margin-left: 20px;
+      &--des {
+        color: #ff4500;
+      }
     }
 
     &__deco {

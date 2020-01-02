@@ -1,0 +1,54 @@
+.wrapper {
+
+  .user-header {
+    height: 100px;
+    &__title {
+      text-align: center;
+      font-size: 30px;
+      padding-top: 30px;
+    }
+
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+
+      .user-top {
+        margin-right: 50px;
+      }
+
+    }
+    
+  }
+  .wrapper-flex {
+    display: flex;
+    justify-content: space-between;
+
+    .user-wrapper {
+      height: 100%;
+      width: 33%;
+  
+      .field {
+        margin-top: 30px;
+        &__input-box {
+          height: 30px;
+          width: 100%;
+        }
+      }
+  
+      .actions {
+        margin: 30px auto;
+        text-align: center;
+
+        &__submit {
+          height: 40px;
+          width: 200px;
+          font-size: 20px;
+          background-color: aqua;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+}

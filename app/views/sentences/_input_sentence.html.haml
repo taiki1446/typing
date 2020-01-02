@@ -1,0 +1,29 @@
+.stc-field
+  - if request.fullpath.include?("new")
+    - form_obj = @sentences
+  - else
+    - form_obj = @sentence
+  = form_with model: form_obj, local: true do |f|
+    .dummy
+    .wrapper
+      .stc-field__note
+        好きな文章を入力してください。
+      .stc-field__input
+        = f.text_area :text, class: "stc-field__input--text"
+      .stc-field__input
+        .stc-field__input--btn
+          ローマ字変換
+        -# %p
+        -#   ボタンを押すと、下記エリアに、ローマ字が入力されます。
+        -# %p 必要であれば、修正してください。
+        %br
+        %p
+          下記欄にローマ字を入力してください。
+        = f.text_area :romaji, class: "stc-field__input--text"
+      .stc-field__submit
+        - if request.fullpath.include?("new")
+          - str = "登録する"
+        - else
+          - str = "編集する"
+        = f.submit str, class: "submit-btn"
+    .dummy
