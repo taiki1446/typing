@@ -1,0 +1,10 @@
+.user-header
+  .user-header__title
+    - if request.fullpath.include?("sign_up")
+      ユーザー新規登録
+    -# - else
+    -#   ログイン
+  .user-header__wrapper
+    .dummy
+    .user-top
+      = link_to "トップ画面へ戻る", root_path

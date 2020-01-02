@@ -1,0 +1,32 @@
+.wrapper
+  = render "users/shared/user-header"
+
+  .wrapper-flex
+    .dummy
+
+    .user-wrapper
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), local: true) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        -# .field
+        -#   = f.label :email
+        -#   %br/
+        -#   = f.email_field :email, autofocus: true, autocomplete: "email"
+        .field
+          = f.label :nickname
+          %br/
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "field__input-box"
+        .field
+          = f.label :password
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class: "field__input-box"
+        .field
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: "field__input-box"
+        .actions
+          = f.submit "新規登録", class: "actions__submit"
+
+    .dummy

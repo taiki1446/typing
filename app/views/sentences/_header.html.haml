@@ -1,13 +1,20 @@
 .stc-header
   .dummy
+  .header-title
+    - if request.fullpath.include?("new")
+      追　加　登　録
+    - elsif request.fullpath.include?("edit")
+      編　集
+
   %ul
     %li
-      - if request.fullpath.include?("new")
-        = link_to sentences_path do
-          戻る
-      - else
+      - if request.fullpath == "/sentences"
         = link_to new_sentence_path do
           追加登録
+      - else
+        = link_to sentences_path do
+          戻る
+
     %li
       = link_to root_path do
         トップ画面

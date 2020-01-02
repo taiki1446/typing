@@ -7,10 +7,10 @@
         .stc__wrapper--id
           = sentence.id
         .stc__wrapper__btn
-          = link_to "#", class: "stc__wrapper__btn--link" do
+          = link_to edit_sentence_path(sentence.id), class: "stc__wrapper__btn--edit" do
             編集
         .stc__wrapper__btn
-          = link_to sentence_path(sentence.id), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: "stc__wrapper__btn--link" do
+          = link_to sentence_path(sentence.id), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: "stc__wrapper__btn--des" do
             削除
       %table
         %tr

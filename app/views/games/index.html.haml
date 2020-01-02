@@ -11,12 +11,17 @@
       .header__wrapper--deco
         = link_to "#", class: "deco-link" do
           ランキング
-      .header__wrapper--deco
-        = link_to "#", class: "deco-link" do
-          新規登録
-      .header__wrapper--deco
-        = link_to "#", class: "deco-link" do
-          ログイン
+      - if user_signed_in?
+        .header__wrapper--deco
+          = link_to destroy_user_session_path, method: :delete, class: "deco-link", data: {confirm: "ログアウトしてもよろしいですか？"} do
+            ログアウト
+      - else
+        .header__wrapper--deco
+          = link_to new_user_registration_path, class: "deco-link" do
+            新規登録
+        .header__wrapper--deco
+          = link_to new_user_session_path, class: "deco-link" do
+            ログイン
 
   %br
   .result.dsp-none
