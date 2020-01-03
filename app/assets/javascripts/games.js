@@ -21,14 +21,13 @@ $(function(){
     $(".playing").text(disp_time);
   }
 
-  function q_sentence(){
-    let temp = gon.sentences[sentence_index];
+  function q_sentence(stc_data){
     let q_s_obj = 
     ` <div class="games__sentences__sentence">
-        ${temp.text}
+        ${stc_data.text}
       </div>
       <div class="games__sentences__sentence">
-        ${temp.romaji}
+        ${stc_data.romaji}
       </div>
     `
     return q_s_obj;
@@ -40,15 +39,25 @@ $(function(){
     return apnd_str;
   }
 
+  // 対象の文章選択ラジオボタンがクリックされた場合
+  // 表示を切り替える
+  $(document).on("click", ".games__target-stc--all", function(){
+    $(".games__num--myself").hide();
+    $(".games__num--all").show();
+  });
+  $(document).on("click", ".games__target-stc--myself", function(){
+    $(".games__num--all").hide();
+    $(".games__num--myself").show();
+  });
+
   let flash_obj;
   let btn = ".games__start__btn";
   let sentence_index = 0;
   let sentence_num = 1;
+  let stc_data_obj;
   $(document).off("click", btn);
   // スタートボタンがクリックされた場合
   $(document).on("click", btn, function(){
-
-    sentence_num = parseInt($(".games__num__select").val(), 10);
     $(".input-str").remove();
     $(".games__sentences__sentence").remove();
     $(".games__sentences p").remove();
@@ -73,15 +82,23 @@ $(function(){
     }, 100);
 
     // 問題文の表示
-    $(".games__sentences").prepend(q_sentence(sentence_index));
+    let stc_select = $('input[name=target]:checked').val();
+    if(stc_select === "1"){
+      stc_data_obj = gon.sentences;
+      sentence_num = parseInt($(".select-all").val(), 10);
+    } else if(stc_select === "2"){
+      stc_data_obj = gon.sentences_myself;
+      sentence_num = parseInt($(".select-myself").val(), 10);
+    }
+    $(".games__sentences").prepend(q_sentence(stc_data_obj[sentence_index]));
   });
 
   let str_index = 0;
   $(document).off("keydown", ".input-field");
   // 入力されたキーの判定
   $(document).on("keydown", ".input-field", function(e){
-    let str = gon.sentences[sentence_index].romaji;
-    let str_array = Array.from(str);
+    
+    let str_array = Array.from(stc_data_obj[sentence_index].romaji);
     if(str_array[str_index] === e.key){
       // 入力された文字を出力する。
       if(str_index === 0){
@@ -103,7 +120,7 @@ $(function(){
       if (sentence_num !== (sentence_index)){
         $(".games__sentences__sentence").remove();
         $(".input-str").remove();
-        $(".games__sentences").prepend(q_sentence(sentence_index));
+        $(".games__sentences").prepend(q_sentence(stc_data_obj[sentence_index]));
       };
     };
 

@@ -5,7 +5,11 @@
     タイピング　練習
   .header
     .header__register
-      = link_to sentences_path do
+      - if user_signed_in?
+        - path = sentences_path
+      - else
+        - path = new_user_session_path
+      = link_to path do
         文章登録
     .header__wrapper
       .header__wrapper--deco
@@ -25,21 +29,42 @@
         .header__wrapper--deco
           = link_to new_user_session_path, class: "deco-link" do
             ログイン
+  - if !user_signed_in?
+    .register-note
+      文章登録をする場合は、ログインをしてください。
 
-  %br
 
   = render "games-result"
 
-  %br
-
   .games
+    .games__target-stc
+      - if user_signed_in?
+        .games__target-stc--all
+          = label_tag "target_1", "すべての文章"
+          = radio_button_tag "target", 1, checked: "checked"
+        .games__target-stc--myself
+          = label_tag "target_2", "自分が作成した文章のみ"
+          = radio_button_tag "target", 2
+      - else
+        .games__target-stc--all.games-none
+          = radio_button_tag "target", 1, checked: "checked"
+
+        
     .games__num
       挑戦する文章の数を入力してください。
       %br
-      - num = []
-      - @sentences.length.times do |i|
-        - num << i + 1
-      = select_tag "select", options_for_select(num), class: "games__num__select"
+      .games__num--all
+        - num_all = []
+        - @sentences.length.times do |i|
+          - num_all << i + 1
+        = select_tag "select", options_for_select(num_all), class: "select-all"
+      - if user_signed_in?
+        .games__num--myself.myself-none
+          - num_myself = []
+          - @sentences_myself.length.times do |i|
+            - num_myself << i + 1
+          = select_tag "select", options_for_select(num_myself), class: "select-myself"
+
     .games__start
       %p
         スタートをクリックするとゲーム・測定開始！

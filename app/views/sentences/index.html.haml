@@ -1,17 +1,20 @@
 .wrapper
   = render "header"
 
+  .stc-note
+    登録されている全ての文章が表示されますが、「編集」・「削除」は、自分が登録した文章のみ可能です。
   .stc
     - @sentences.each do |sentence|
       .stc__wrapper
         .stc__wrapper--id
           = sentence.id
-        .stc__wrapper__btn
-          = link_to edit_sentence_path(sentence.id), class: "stc__wrapper__btn--edit" do
-            編集
-        .stc__wrapper__btn
-          = link_to sentence_path(sentence.id), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: "stc__wrapper__btn--des" do
-            削除
+        - if (user_signed_in?) && (sentence.user_id == current_user.id)
+          .stc__wrapper__btn
+            = link_to edit_sentence_path(sentence.id), class: "stc__wrapper__btn--edit" do
+              編集
+          .stc__wrapper__btn
+            = link_to sentence_path(sentence.id), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: "stc__wrapper__btn--des" do
+              削除
       %table
         %tr
           %th 日本語

@@ -26,15 +26,50 @@
       }
     }
   }
+
+  .register-note {
+    color: #5507FF;
+    margin: 5px 0 0 20px;
+    font-size: 16px;
+  }
   
   .games {
     margin-top: 50px;
+
+    &__target-stc {
+      width: 430px;
+      display: flex;
+      margin: auto;
+      margin-bottom: 30px;
+
+      &--all {
+        margin-right: 20px;
+        background-color: #00FF3B;
+        border-radius: 10px;
+        padding: 5px;
+      }
+      &--myself {
+        background-color: #00FF3B;
+        border-radius: 10px;
+        padding: 5px;
+      }
+    }
+
     &__num {
       text-align: center;
-      &__select {
+      .select-all {
         width: 50px;
         height: 50px;
         font-size: 20px;
+      }
+      .select-myself {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+
+      .myself-none {
+        display: none;
       }
     }
 
@@ -112,6 +147,10 @@
       background-color: #FFCC66;
       border-radius: 10px;
 
+    }
+
+    .games-none {
+      display: none;
     }
   }
 }

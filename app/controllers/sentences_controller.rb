@@ -33,7 +33,7 @@ class SentencesController < ApplicationController
 
   private
   def set_sentence
-    params.require(:sentence).permit(:text, :romaji)
+    params.require(:sentence).permit(:text, :romaji).merge(user_id: current_user.id)
   end
   
   def get_sentence
