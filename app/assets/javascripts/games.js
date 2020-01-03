@@ -138,7 +138,7 @@ $(function(){
       $(".result__time").text(disp_time);
       let str_length = 0;
       for(let i = 0; i < sentence_num; i++){
-        str_length = str_length + gon.sentences[i].romaji.length;
+        str_length = str_length + stc_data_obj[i].romaji.length;
       }
       console.log(str_length);
       console.log(sec_temp);
