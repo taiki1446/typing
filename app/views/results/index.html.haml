@@ -1,0 +1,33 @@
+.wrapper
+  .ranking-header
+    ランキング一覧
+  .header-wrapper
+    .dummy
+    .header-wrapper__result-top
+      = link_to "トップ画面に戻る", root_path
+
+  .ranking
+    %table
+      %tr
+        %th 順位
+        %th 名前
+        %th 文章数
+        %th 入力文字数
+        %th 入力文字数 / 秒
+        %th 日時
+      - @results.each_with_index do |result, i|
+        %tr
+          %td
+            = i + 1
+          %td
+            = result.user.nickname
+          %td
+            = result.stc_num
+          %td
+            = result.string_num
+          %td
+            = result.average
+          %td
+            = result.created_at.strftime("%Y-%m-%d %H:%M")
+
+    %br

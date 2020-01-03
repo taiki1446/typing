@@ -1,0 +1,38 @@
+.ranking-header {
+  text-align: center;
+  font-size: 30px;
+  padding-top: 30px;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  &__result-top {
+    margin-right: 30px;
+  }
+}
+
+.ranking {
+  width: 70%;
+  margin: 50px auto;
+
+  table {
+    width: 100%;
+    height: 80%;
+
+    tr {
+      border-bottom: solid 1px;
+
+      th {
+      }
+
+      td {
+        height: 40px;
+        vertical-align: bottom;
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+  }
+}

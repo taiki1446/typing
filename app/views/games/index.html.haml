@@ -9,50 +9,28 @@
         文章登録
     .header__wrapper
       .header__wrapper--deco
-        = link_to "#", class: "deco-link" do
+        = link_to results_path, class: "deco-link" do
           ランキング
       - if user_signed_in?
+        .header__wrapper--deco
+          = link_to "#", class: "deco-link" do
+            マイページ
         .header__wrapper--deco
           = link_to destroy_user_session_path, method: :delete, class: "deco-link", data: {confirm: "ログアウトしてもよろしいですか？"} do
             ログアウト
       - else
         .header__wrapper--deco
           = link_to new_user_registration_path, class: "deco-link" do
-            新規登録
+            ユーザー新規登録
         .header__wrapper--deco
           = link_to new_user_session_path, class: "deco-link" do
             ログイン
 
   %br
-  .result.dsp-none
-    %br
-    .result__clear
-      全問クリア！
-    %br
-    %table
-      %tr
-        %th
-          文章数
-        %td.result__stc-num
-          
-      %tr
-        %th
-          タイム
-        %td.result__time
-          
-      %tr
-        %th
-          文字数 / 秒
-        %td.result__verage
-          
-    %br
-    .result__wrapper
-      .result__wrapper__challenge
-        = link_to "再チャレンジ！", root_path
-      .result__wrapper__top
-        = link_to "結果を登録する", "#"
-    %br
-        
+
+  = render "games-result"
+
+  %br
 
   .games
     .games__num

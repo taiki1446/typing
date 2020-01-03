@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_02_062544) do
+ActiveRecord::Schema.define(version: 2020_01_02_150101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "results", force: :cascade do |t|
+    t.integer "stc_num", null: false
+    t.integer "string_num", null: false
+    t.float "average", null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["average"], name: "index_results_on_average"
+  end
 
   create_table "sentences", force: :cascade do |t|
     t.text "text", null: false

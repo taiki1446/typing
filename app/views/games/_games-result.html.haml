@@ -1,0 +1,41 @@
+.result.dsp-none
+  %br
+  .result__clear
+    全問クリア！
+  %br
+  %table
+    %tr
+      %th
+        文章数
+      %td.result__stc-num
+        
+    %tr
+      %th
+        合計入力文字数
+      %td.result__stc-str-num
+        
+    %tr
+      %th
+        タイム
+      %td.result__time
+        
+    %tr
+      %th
+        文字数 / 秒
+      %td.result__average
+
+  %br
+  .result__wrapper
+    = link_to "再チャレンジ！", root_path, class: "result__wrapper__challenge"
+    - if user_signed_in?
+      -# resultテーブル 隠しデータ項目
+      = form_with model: @result, url: results_path, method: :post, local: true do |f|
+        = f.hidden_field :stc_num, value: 0, class: "hidden-stc_num"
+        = f.hidden_field :string_num, value: 0, class: "hidden-string_num"
+        = f.hidden_field :average, value: 0.0, class: "hidden-average"
+        = f.hidden_field :user_id, value: current_user.id, class: "hidden-user_id"
+        = f.submit "結果を登録する", class: "result__wrapper__register"
+  %br
+  - if !user_signed_in?
+    .result__note
+      ユーザー登録を行うと結果を記録することができます。

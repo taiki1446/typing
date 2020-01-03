@@ -20,13 +20,36 @@
   }
 
   &__wrapper {
-    display: flex;
-    width: 350px;
-    margin: auto;
+    text-align: center;
 
     &__challenge {
-      margin-right: 10%;
+      border-radius: 10px;
+      padding: 5px;
     }
+    &__challenge:hover {
+      background-color: #FF8856;
+      color: yellow;
+    }
+
+    &__register {
+      border-radius: 10px;
+      margin-top: 30px;
+      cursor: pointer;
+      background-color: yellow;
+      border-style: none;
+      font-size: 20px;
+      color: #FF33FF;
+    }
+    &__register:hover {
+      background-color: #FF33FF;
+      color: yellow;
+    }
+  }
+
+  &__note {
+    width: 50%;
+    margin: auto;
+    font-size: 16px;
   }
 
 }

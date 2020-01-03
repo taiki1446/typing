@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:nickname]
 
+  # has_many :sentences
+  has_many :results
+
   def email_required?
     false
   end
