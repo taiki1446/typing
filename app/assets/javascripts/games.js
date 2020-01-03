@@ -125,7 +125,14 @@ $(function(){
       }
       console.log(str_length);
       console.log(sec_temp);
-      $(".result__verage").text((str_length / sec_temp).toFixed(1));
+      $(".result__stc-str-num").text(str_length);
+      let avg = (str_length / sec_temp).toFixed(1);
+      $(".result__average").text(avg);
+
+      // resultテーブルへ格納するための、hidden領域への設定
+      $(".hidden-stc_num").val(sentence_num);
+      $(".hidden-string_num").val(str_length);
+      $(".hidden-average").val(avg);
 
       sentence_index = 0;
       sentence_num = 1;

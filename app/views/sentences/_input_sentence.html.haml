@@ -1,9 +1,11 @@
 .stc-field
   - if request.fullpath.include?("new")
     - form_obj = @sentences
+    - method = "post"
   - else
     - form_obj = @sentence
-  = form_with model: form_obj, local: true do |f|
+    - method = "patch"
+  = form_with model: form_obj, method: method, local: true do |f|
     .dummy
     .wrapper
       .stc-field__note
