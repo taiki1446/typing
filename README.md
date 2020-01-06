@@ -5,12 +5,12 @@
 ・JavaScript,Jquery（以下、「JS」という）
 ### 機能概要
 ・入力されたキーの判定（JS）  
-・ストップウォッチ機能(JS)
+・ストップウォッチ機能(JS)  
 ・文章の作成、編集、削除  
 ・ランキング登録  
+### 使用した技術
 ・showを除くアクションの活用(rails)  
 ・DBのCRUD操作(rails)  
-### 使用した技術
 ・Haml  
 ・scss  
 ・gem : gon, devise, pry-rails
