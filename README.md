@@ -1,8 +1,14 @@
 # タイピングソフト
+https://typing-ts.herokuapp.com/
 ### 作成目的
 以下の点について重点的に学習を行うため。  
 ・railsの基本的な機能  
 ・JavaScript,Jquery（以下、「JS」という）
+### 環境
+・Rails 5.2.4  
+・ruby 2.5.1  
+・PostgreSQL 12.1  
+・heroku
 ### 機能概要
 ・入力されたキーの判定（JS）  
 ・ストップウォッチ機能(JS)  
